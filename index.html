@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Artigos</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f4; }
+        .container { max-width: 1000px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; }
+        h1 { color: #333; text-align: center; }
+        h2 { border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-top: 30px; color: #444; text-transform: capitalize; }
+        .article-card { background: #f9f9f9; padding: 10px; margin: 5px 0; border: 1px solid #ddd; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; font-size: 0.9em; }
+        .article-title { flex-grow: 1; margin-right: 10px; }
+        .buttons { display: flex; gap: 10px; }
+        .buttons a { display: inline-block; padding: 5px 10px; text-decoration: none; color: #fff; border-radius: 4px; font-size: 0.9em; }
+        .btn-original { background-color: #007bff; }
+        .btn-traduzido { background-color: #28a745; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Biblioteca de Artigos</h1>
+        <p style="text-align: center;">Organização de leitura com opções de original e tradução.</p>
+
+        <!-- Script de estruturação automática baseado nos arquivos -->
+        <script>
+            // Mapeamento baseado nos diretórios Artigos_ordenados e Artigos traduzidos
+            const artigos = [
+                // 1_fundamentos
+                { theme: "Fundamentos (CER)", original: "Artigos_ordenados/1_fundamentos_artigo_10_WeintropWilensky_2019_CE.pdf", translated: "Artigos traduzidos/1_fundamentos_artigo_10_WeintropWilensky_2019_CE_traduzido.pdf", title: "Weintrop Wilensky 2019 CE" },
+                { theme: "Fundamentos (CER)", original: "Artigos_ordenados/1_fundamentos_artigo_11_Kallia_Reimagining.pdf", translated: "Artigos traduzidos/1_fundamentos_artigo_11_Kallia_Reimagining_traduzido.pdf", title: "Kallia Reimagining" },
+                { theme: "Fundamentos (CER)", original: "Artigos_ordenados/1_fundamentos_artigo_1_CERKeywords.pdf", translated: null, title: "CERKeywords" },
+                { theme: "Fundamentos (CER)", original: "Artigos_ordenados/1_fundamentos_artigo_2_Malmietal - Theories in CER.pdf", translated: null, title: "Malmietal Theories in CER" },
+                { theme: "Fundamentos (CER)", original: "Artigos_ordenados/1_fundamentos_artigo_3_mindstorms-chap1.pdf", translated: null, title: "mindstorms-chap1" },
+                { theme: "Fundamentos (CER)", original: "Artigos_ordenados/1_fundamentos_artigo_4_McCracken2001.pdf", translated: null, title: "McCracken2001" },
+                { theme: "Fundamentos (CER)", original: "Artigos_ordenados/1_fundamentos_artigo_5_A23_Pea_etal_85.pdf", translated: null, title: "A23 Pea etal 85" },
+                { theme: "Fundamentos (CER)", original: "Artigos_ordenados/1_fundamentos_artigo_6_KafaiFromTheoryToBias.pdf", translated: null, title: "Kafai From Theory To Bias" },
+                { theme: "Fundamentos (CER)", original: "Artigos_ordenados/1_fundamentos_artigo_7_PapertAnswersPEa.pdf", translated: null, title: "Papert Answers PEa" },
+                { theme: "Fundamentos (CER)", original: "Artigos_ordenados/1_fundamentos_artigo_8_Research This!.pdf", translated: "Artigos traduzidos/1_fundamentos_artigo_8_Research This!_traduzido.pdf", title: "Research This!" },
+                { theme: "Fundamentos (CER)", original: "Artigos_ordenados/1_fundamentos_artigo_9_IExECRBIE.pdf", translated: null, title: "IExECRBIE" },
+                
+                // 2_cog_apr
+                { theme: "Cognição & Aprendizado", original: "Artigos_ordenados/2_cog_apr_artigo_10_Lauren Margulieux_MultipleConceptions.pdf", translated: "Artigos traduzidos/2_cog_apr_artigo_10_Lauren Margulieux_MultipleConceptions_traduzido.pdf", title: "Lauren Margulieux Multiple Conceptions" },
+                { theme: "Cognição & Aprendizado", original: "Artigos_ordenados/2_cog_apr_artigo_11_MillerNaturalLanguage.pdf", translated: null, title: "Miller Natural Language" },
+                { theme: "Cognição & Aprendizado", original: "Artigos_ordenados/2_cog_apr_artigo_12_SorvaSplashingAbstracts.pdf", translated: "Artigos traduzidos/2_cog_apr_artigo_12_SorvaSplashingAbstracts_traduzido.pdf", title: "Sorva Splashing Abstracts" },
+                { theme: "Cognição & Aprendizado", original: "Artigos_ordenados/2_cog_apr_artigo_1_SolowayLearningToProgram.pdf", translated: null, title: "Soloway Learning To Program" },
+                { theme: "Cognição & Aprendizado", original: "Artigos_ordenados/2_cog_apr_artigo_2_Morrison_CognitiveLoad.pdf", translated: "Artigos traduzidos/2_cog_apr_artigo_2_Morrison_CognitiveLoad_traduzido.pdf", title: "Morrison Cognitive Load" },
+                { theme: "Cognição & Aprendizado", original: "Artigos_ordenados/2_cog_apr_artigo_3_PeaCognitiveProgramming.pdf", translated: null, title: "Pea Cognitive Programming" },
+                { theme: "Cognição & Aprendizado", original: "Artigos_ordenados/2_cog_apr_artigo_4_Swidan_ProgrammingMisconceptions.pdf", translated: "Artigos traduzidos/2_cog_apr_artigo_4_Swidan_ProgrammingMisconceptions_traduzido.pdf", title: "Swidan Programming Misconceptions" },
+                { theme: "Cognição & Aprendizado", original: "Artigos_ordenados/2_cog_apr_artigo_5_DanielsiekSelf-Efficacy.pdf", translated: "Artigos traduzidos/2_cog_apr_artigo_5_DanielsiekSelf-Efficacy_traduzido.pdf", title: "Danielsiek Self-Efficacy" },
+                { theme: "Cognição & Aprendizado", original: "Artigos_ordenados/2_cog_apr_artigo_6_Duran_SelfEvaluationn.pdf", translated: "Artigos traduzidos/2_cog_apr_artigo_6_Duran_SelfEvaluationn_traduzido.pdf", title: "Duran SelfEvaluationn" },
+                { theme: "Cognição & Aprendizado", original: "Artigos_ordenados/2_cog_apr_artigo_7_Lister_MNMIProgramComprehension.pdf", translated: "Artigos traduzidos/2_cog_apr_artigo_7_Lister_MNMIProgramComprehension_traduzido.pdf", title: "Lister MNMI Program Comprehension" },
+                { theme: "Cognição & Aprendizado", original: "Artigos_ordenados/2_cog_apr_artigo_8_Parkinson_Spatial.pdf", translated: null, title: "Parkinson Spatial" },
+                { theme: "Cognição & Aprendizado", original: "Artigos_ordenados/2_cog_apr_artigo_9_PeaSuperBug.pdf", translated: null, title: "Pea SuperBug" },
+
+                // 3_pratica
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_10_Parker_UseOfSCS1.pdf", translated: "Artigos traduzidos/3_pratica_artigo_10_Parker_UseOfSCS1_traduzido.pdf", title: "Parker UseOfSCS1" },
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_11_RolesOfVariables.pdf", translated: "Artigos traduzidos/3_pratica_artigo_11_RolesOfVariables_traduzido.pdf", title: "Roles Of Variables" },
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_12_TewFCS1.pdf", translated: "Artigos traduzidos/3_pratica_artigo_12_TewFCS1_traduzido.pdf", title: "Tew FCS1" },
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_13_Tsukudu_SecondPL.pdf", translated: "Artigos traduzidos/3_pratica_artigo_13_Tsukudu_SecondPL_traduzido.pdf", title: "Tsukudu SecondPL" },
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_14_vanMerrienboerCodeCompletion.pdf", translated: null, title: "vanMerrienboer CodeCompletion" },
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_15_Porter_BDSI.pdf", translated: "Artigos traduzidos/3_pratica_artigo_15_Porter_BDSI_traduzido.pdf", title: "Porter BDSI" },
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_1_Peer Instruction.pdf", translated: "Artigos traduzidos/3_pratica_artigo_1_Peer Instruction_traduzido.pdf", title: "Peer Instruction" },
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_2_vanMerrienboerWorkedExamples.pdf", translated: null, title: "vanMerrienboer WorkedExamples" },
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_3_ParsonsPuzzles.pdf", translated: null, title: "Parsons Puzzles" },
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_4_GuzdialMediaComputation.pdf", translated: null, title: "Guzdial MediaComputation" },
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_5_Bonar_ProgrammingKnowledge.pdf", translated: null, title: "Bonar ProgrammingKnowledge" },
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_6_Eckerdal_ClassesAndObjects.pdf", translated: "Artigos traduzidos/3_pratica_artigo_6_Eckerdal_ClassesAndObjects_traduzido.pdf", title: "Eckerdal ClassesAndObjects" },
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_7_Krishnamurit_higherorderfunctions.pdf", translated: "Artigos traduzidos/3_pratica_artigo_7_Krishnamurit_higherorderfunctions_traduzido.pdf", title: "Krishnamurit higherorderfunctions" },
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_8_Miedema_SQL.pdf", translated: "Artigos traduzidos/3_pratica_artigo_8_Miedema_SQL_traduzido.pdf", title: "Miedema SQL" },
+                { theme: "Prática Pedagógica", original: "Artigos_ordenados/3_pratica_artigo_9_MillerProgrammingByNonProgrammers.pdf", translated: null, title: "Miller ProgrammingByNonProgrammers" },
+                
+                // 4_inclusao
+                { theme: "Inclusão & Contexto", original: "Artigos_ordenados/4_inclusao_artigo_1_Christensen_ApealToWomen.pdf", translated: null, title: "Christensen ApealToWomen" },
+                { theme: "Inclusão & Contexto", original: "Artigos_ordenados/4_inclusao_artigo_2_Lishinski_GenderDifferences.pdf", translated: "Artigos traduzidos/4_inclusao_artigo_2_Lishinski_GenderDifferences_traduzido.pdf", title: "Lishinski GenderDifferences" },
+                { theme: "Inclusão & Contexto", original: "Artigos_ordenados/4_inclusao_artigo_3_AnNguyen_SenseOfBelonging.pdf", translated: "Artigos traduzidos/4_inclusao_artigo_3_AnNguyen_SenseOfBelonging_traduzido.pdf", title: "AnNguyen SenseOfBelonging" },
+                { theme: "Inclusão & Contexto", original: "Artigos_ordenados/4_inclusao_artigo_4_deWit_ChildrenStereotypes.pdf", translated: "Artigos traduzidos/4_inclusao_artigo_4_deWit_ChildrenStereotypes_traduzido.pdf", title: "deWit ChildrenStereotypes" },
+                { theme: "Inclusão & Contexto", original: "Artigos_ordenados/4_inclusao_artigo_5_Krause-Levy_SenseOfBelonging.pdf", translated: "Artigos traduzidos/4_inclusao_artigo_5_Krause-Levy_SenseOfBelonging_traduzido.pdf", title: "Krause-Levy SenseOfBelonging" },
+                { theme: "Inclusão & Contexto", original: "Artigos_ordenados/4_inclusao_artigo_6_Mooney_SenseOfBelongingAndCOVID19.pdf", translated: "Artigos traduzidos/4_inclusao_artigo_6_Mooney_SenseOfBelongingAndCOVID19_traduzido.pdf", title: "Mooney SenseOfBelongingAndCOVID19" },
+                { theme: "Inclusão & Contexto", original: "Artigos_ordenados/4_inclusao_artigo_7_KinunnenWhyStudentsDrop.pdf", translated: "Artigos traduzidos/4_inclusao_artigo_7_KinunnenWhyStudentsDrop_traduzido.pdf", title: "Kinunnen WhyStudentsDrop" },
+
+                // 5_outros
+                { theme: "Outros", original: "Artigos_ordenados/5_outros_artigo_1_1404520.1404531.pdf", translated: "Artigos traduzidos/5_outros_artigo_1_1404520.1404531_traduzido.pdf", title: "1404520.1404531" },
+                { theme: "Outros", original: "Artigos_ordenados/5_outros_artigo_2_2483710.2483713.pdf", translated: "Artigos traduzidos/5_outros_artigo_2_2483710.2483713_traduzido.pdf", title: "2483710.2483713" },
+                { theme: "Outros", original: "Artigos_ordenados/5_outros_artigo_3_3501385.3543957.pdf", translated: "Artigos traduzidos/5_outros_artigo_3_3501385.3543957_traduzido.pdf", title: "3501385.3543957" },
+                { theme: "Outros", original: "Artigos_ordenados/5_outros_artigo_4_3501385.3543957.pdf", translated: "Artigos traduzidos/5_outros_artigo_4_3501385.3543957_traduzido.pdf", title: "3501385.3543957 (Segunda versão)" }
+            ];
+
+            const container = document.querySelector('.container');
+            let currentTheme = "";
+
+            artigos.forEach(artigo => {
+                if (artigo.theme !== currentTheme) {
+                    currentTheme = artigo.theme;
+                    const h2 = document.createElement('h2');
+                    h2.textContent = currentTheme;
+                    container.appendChild(h2);
+                }
+
+                const card = document.createElement('div');
+                card.className = 'article-card';
+
+                const titleSpan = document.createElement('span');
+                titleSpan.className = 'article-title';
+                titleSpan.textContent = artigo.title;
+                card.appendChild(titleSpan);
+
+                const buttonsDiv = document.createElement('div');
+                buttonsDiv.className = 'buttons';
+
+                const originalBtn = document.createElement('a');
+                originalBtn.href = artigo.original;
+                originalBtn.className = 'btn-original';
+                originalBtn.textContent = 'Ler Original';
+                originalBtn.target = '_blank';
+                buttonsDiv.appendChild(originalBtn);
+
+                if (artigo.translated) {
+                    const translatedBtn = document.createElement('a');
+                    translatedBtn.href = artigo.translated;
+                    translatedBtn.className = 'btn-traduzido';
+                    translatedBtn.textContent = 'Ler Tradução';
+                    translatedBtn.target = '_blank';
+                    buttonsDiv.appendChild(translatedBtn);
+                }
+
+                card.appendChild(buttonsDiv);
+                container.appendChild(card);
+            });
+        </script>
+    </div>
+</body>
+</html>
